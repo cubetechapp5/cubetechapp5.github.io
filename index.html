@@ -283,7 +283,7 @@
         var temp;
         var value;
         $('#insights').empty();
-        FB.api('/' + pageID + '/insights', 'GET', data, function (response) {
+        FB.api('/' + pageID + '/insights/page_impressions', 'GET', data, function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 value = 0;
                 try {
@@ -293,12 +293,12 @@
                 }
                 catch (err) {
                 }
-                if (value > 0) {
+                //if (value > 0) {
                     temp = "<tr><td>" + response.data[i].title + "</td>";
                     temp += "<td>" + response.data[i].description + "</td>";
                     temp += "<td>" + value + "</td></tr>";
                     $('#insights').append(temp);
-                }
+                //}
             }
         });
     }
